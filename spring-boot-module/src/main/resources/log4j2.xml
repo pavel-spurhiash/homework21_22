@@ -9,7 +9,7 @@
             </PatternLayout>
         </Console>
 
-        <RollingFile name="rollingFile" fileName="logs/log4j2.log" filePattern="logs/app-%d{MM-dd-yyyy}-%i.log.gz">
+        <RollingFile name="rollingFile" fileName="logs/application_log.txt" filePattern="logs/app-%d{MM-dd-yyyy}-%i.log.gz">
 
             <PatternLayout>
                 <Pattern>%d %p %c{3.} [%t] %m%n</Pattern>

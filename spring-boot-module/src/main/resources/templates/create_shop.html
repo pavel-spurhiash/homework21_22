@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>New Shop</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css">
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}" src="../static/js/jquery-3.4.1.slim.min.js"></script>
+    <script th:src="@{/js/popper.min.js}" src="../static/js/popper.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="max-width: 350px; margin-top: 100px">
+    <h4>New Shop</h4>
+    <br>
+    <form th:action="@{/shops/create}" method="POST" th:object="${shop}">
+        <fieldset>
+
+            <div class="form-group">
+                <label>Name:</label>
+                <div th:if="${#fields.hasErrors('name')}">
+                    <div class="alert alert-danger">
+                        <span th:errors="*{name}"></span>
+                    </div>
+                </div>
+                <input th:field="*{name}"
+                       id="name"
+                       name="name"
+                       type="text"
+                       class="form-control input-lg"
+                       placeholder="Shop name"
+                       required="true"
+                       autofocus="true">
+            </div>
+
+            <div class="form-group">
+                <label>Location:</label>
+                <div th:if="${#fields.hasErrors('location')}">
+                    <div class="alert alert-danger">
+                        <span th:errors="*{location}"></span>
+                    </div>
+                </div>
+                <input th:field="*{location}"
+                       id="location"
+                       name="location"
+                       type="text"
+                       class="form-control input-lg"
+                       placeholder="Shop location"
+                       required="true"
+                       autofocus="true">
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input type="submit" value="Create Shop" class="btn btn-primary btn active">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>

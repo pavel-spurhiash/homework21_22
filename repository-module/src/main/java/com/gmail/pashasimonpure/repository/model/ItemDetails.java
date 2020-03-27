@@ -17,18 +17,10 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "item_details")
 public class ItemDetails {
 
-    @GenericGenerator(
-            name = "itemIdGenerator",
-            strategy = "foreign",
-            parameters = @Parameter(name = "property", value = "item")
-    )
-    @GeneratedValue(generator = "itemIdGenerator")
     @Id
-    @Column(
-            name = "item_id",
-            unique = true,
-            nullable = false
-    )
+    @GeneratedValue(generator = "itemIdGenerator")
+    @Column(name = "item_id", unique = true, nullable = false)
+    @GenericGenerator(name = "itemIdGenerator", strategy = "foreign", parameters = @Parameter(name = "property", value = "item"))
     private Long itemId;
 
     @Column

@@ -53,7 +53,7 @@ public class ItemServiceImpl implements ItemService {
     @Transactional
     public void removeById(Long id) {
         List<Shop> shops = shopRepository.findShopsWithItemId(id);
-        for(Shop shop: shops){
+        for (Shop shop : shops) {
             shop.getItems().removeIf(item -> item.getId().equals(id));
         }
         Item item = itemRepository.findById(id);

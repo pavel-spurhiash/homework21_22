@@ -18,4 +18,6 @@ public interface ShopService {
 
     List<ShopDTO> findShopsWithItemId(Long id);
 
+    void addItemToShops(List<Long> shopsId, Long itemId);
+
 }

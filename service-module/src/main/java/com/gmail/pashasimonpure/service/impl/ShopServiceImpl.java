@@ -76,6 +76,14 @@ public class ShopServiceImpl implements ShopService {
         shop.getItems().add(item);
     }
 
+    @Override
+    @Transactional
+    public void addItemToShops(List<Long> shopsId, Long itemId) {
+        for (Long shopId : shopsId) {
+            addItemToShop(itemId, shopId);
+        }
+    }
+
     private static ShopDTO convert(Shop shop) {
         ShopDTO shopDTO = new ShopDTO();
         shopDTO.setId(shop.getId());

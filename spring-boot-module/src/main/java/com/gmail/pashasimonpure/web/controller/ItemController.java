@@ -63,7 +63,7 @@ public class ItemController {
 
     @PostMapping("/create")
     public String createItem(@Valid @ModelAttribute(name = "item") ItemDTO item, BindingResult bindingResult, Model model) {
-        logger.debug("create item input DATA: " + item.toString());
+        logger.error("create item input DATA: " + item.toString());
         if (bindingResult.hasErrors()) {
             List<ShopDTO> shops = shopService.findAll();
             model.addAttribute("item", item);
@@ -73,11 +73,7 @@ public class ItemController {
         List<Long> shopsId = item.getShopsId();
         //generate item id from database:
         item = itemService.add(item);
-        Long itemId = item.getId();
-
-        for (Long shopId : shopsId) {
-            shopService.addItemToShop(itemId, shopId);
-        }
+        shopService.addItemToShops(shopsId, item.getId());
         return "redirect:/items";
     }
 

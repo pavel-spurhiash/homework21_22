@@ -87,4 +87,14 @@ public class Shop {
         return Objects.hash(id, items);
     }
 
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", items=" + items +
+                '}';
+    }
+
 }

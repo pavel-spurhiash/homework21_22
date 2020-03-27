@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -21,7 +22,7 @@ public class ItemDTO {
     @DecimalMin(value = "0.5", message = "Invalid Item Price (0.5 min)")
     private BigDecimal price;
 
-    @NotNull
+    @NotEmpty
     private List<Long> shopsId = new ArrayList<>();
 
     public List<Long> getShopsId() {

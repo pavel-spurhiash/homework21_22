@@ -63,7 +63,7 @@ public class ItemController {
 
     @PostMapping("/create")
     public String createItem(@Valid @ModelAttribute(name = "item") ItemDTO item, BindingResult bindingResult, Model model) {
-        logger.error("create item input DATA: " + item.toString());
+        logger.debug("create item input DATA: " + item.toString());
         if (bindingResult.hasErrors()) {
             List<ShopDTO> shops = shopService.findAll();
             model.addAttribute("item", item);

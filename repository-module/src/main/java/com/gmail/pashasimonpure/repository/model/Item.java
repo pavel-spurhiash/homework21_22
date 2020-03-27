@@ -71,21 +71,12 @@ public class Item {
         }
         Item item = (Item) o;
         return Objects.equals(id, item.id) &&
-                Objects.equals(name, item.name) &&
-                Objects.equals(description, item.description);
+                Objects.equals(itemDetails, item.itemDetails);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, itemDetails);
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", itemDetails=" + itemDetails +
-                '}';
     }
 
 }

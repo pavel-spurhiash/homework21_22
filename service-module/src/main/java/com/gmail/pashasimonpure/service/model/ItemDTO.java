@@ -1,6 +1,7 @@
 package com.gmail.pashasimonpure.service.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
@@ -21,7 +22,7 @@ public class ItemDTO {
     private BigDecimal price;
 
     @NotNull
-    private List<Long> shopsId;
+    private List<Long> shopsId = new ArrayList<>();
 
     public List<Long> getShopsId() {
         return shopsId;

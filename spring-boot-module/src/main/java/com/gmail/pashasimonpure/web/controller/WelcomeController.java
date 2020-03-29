@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class WelcomeController {
 
-    public WelcomeController() {
-    }
-
     @GetMapping
     public String welcomePage() {
         return "redirect:items";

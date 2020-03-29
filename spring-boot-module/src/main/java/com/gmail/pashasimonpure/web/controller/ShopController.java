@@ -47,7 +47,7 @@ public class ShopController {
     }
 
     @GetMapping("/{id}/delete")
-    public String removeShopById(@PathVariable(name = "id") Long id, Model model) {
+    public String removeShopById(@PathVariable(name = "id") Long id) {
         shopService.removeById(id);
         return "redirect:/shops";
     }

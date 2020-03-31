@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Item List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css">
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}" src="../static/js/jquery-3.4.1.slim.min.js"></script>
+    <script th:src="@{/js/popper.min.js}" src="../static/js/popper.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a>Item List</a></li>
+            <li class="breadcrumb-item"><a th:href="@{/shops}">Shop List</a></li>
+        </ol>
+    </nav>
+
+    <table class="table table-striped table-hover shadow-lg p-3 mb-5 bg-white rounded">
+        <thead class="thead-dark">
+        <tr class="align-self-center mr-3">
+            <th>#</th>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody th:each="item:${items}">
+        <tr class="align-self-center mr-3">
+            <td class="font-weight-bold" th:text="${item.id}">id</td>
+            <td><a th:text="${item.name}" th:href="@{/items/} + ${item.id}">link</a></td>
+            <td th:text="${item.price}">n/a</td>
+            <td class="text-right">
+                <form th:action="@{/items/}+${item.id}+@{/delete}" method="GET"><input type="submit" value="Delete Item"
+                                                                                       class="btn btn-primary btn active"></form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/items/create}" class="btn btn-primary btn active">Create Item</a>
+</div>
+</body>
+</html>
